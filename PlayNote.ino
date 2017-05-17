@@ -68,7 +68,7 @@ void loop() {
       newnote *= TONEUP;
     }
     saveNote(newnote);
-    tunes.tone(note[0],NOTE_LENGTH*2);
+    tunes.tone(note[0],NOTE_LENGTH * 3);
   }
   //Display
   int MARGIN_X=128 - (MASS_WIDTH * FORM_WIDTH);
