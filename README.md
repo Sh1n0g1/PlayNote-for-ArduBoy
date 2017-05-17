@@ -1,5 +1,5 @@
 # PlayNote-for-ArduBoy
-It is a 10 octave piano app for ArduBoy.
+A 10-octave piano app for ArduBoy.
 ![alt text](https://raw.githubusercontent.com/Sh1n0g1/PlayNote-for-ArduBoy/master/PlayNote_picture.png)
 
 ## Install
