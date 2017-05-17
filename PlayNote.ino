@@ -13,6 +13,7 @@ const float TONEUP=1.059463094359; //http://www.phy.mtu.edu/~suits/NoteFreqCalcs
 const float C0 = 16.351; //http://www.liutaiomottola.com/formulae/freqtab.htm
 const int NOTE_LENGTH=200; //millisec
 float note[]={0,0,0,0,0,0,0,0};
+bool mass_blink=false;
 
 void setup() {
   arduboy.begin();
@@ -86,21 +87,22 @@ void loop() {
           MASS_HEIGHT +1
         );  
       }
-      
-      if(x==i && y==j){
-        arduboy.drawRect(
-          x * MASS_WIDTH + MARGIN_X + 1,
-          y * MASS_HEIGHT + MARGIN_Y + 1,
-          MASS_WIDTH - 1,
-          MASS_HEIGHT - 1
-        );
-        arduboy.drawRect(
-          x * MASS_WIDTH + MARGIN_X + 2,
-          y * MASS_HEIGHT + MARGIN_Y + 2,
-          MASS_WIDTH - 2,
-          MASS_HEIGHT - 2,
-          BLACK
-        );
+      if(mass_blink){
+        if(x==i && y==j){
+          arduboy.drawRect(
+            x * MASS_WIDTH + MARGIN_X + 1,
+            y * MASS_HEIGHT + MARGIN_Y + 1,
+            MASS_WIDTH - 2,
+            MASS_HEIGHT - 2
+          );
+          arduboy.drawRect(
+            x * MASS_WIDTH + MARGIN_X + 2,
+            y * MASS_HEIGHT + MARGIN_Y + 2,
+            MASS_WIDTH - 4,
+            MASS_HEIGHT - 4,
+            BLACK
+          );
+        }
       }
     }
   }
@@ -108,6 +110,7 @@ void loop() {
     arduboy.print(note[i]);
     arduboy.print('\n');
   }
+  mass_blink=!mass_blink;
   arduboy.display();
 }
 
